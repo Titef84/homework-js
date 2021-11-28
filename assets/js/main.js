@@ -16,17 +16,17 @@ function defUpperStr(str){
 console.log(defUpperStr('My text'));
 console.log(defUpperStr());
 
-function eventFn(n){
+function evenFn(n){
   var mas = []
   for (var i = 1; i <= n; i++) if (i % 2 === 0) mas.push(i);
   return mas
 }
-console.log(eventFn(10));
-console.log(eventFn(15));
-console.log(eventFn(20));
+console.log(evenFn(10));
+console.log(evenFn(15));
+console.log(evenFn(20));
 
 function weekFn(n){
-  let a = '';
+  var a = '';
    switch (n) {
     case 1:
       a = 'Понедельник';
@@ -38,7 +38,7 @@ function weekFn(n){
       a = 'Среда';
       break;
     case 4:
-        a = 'Четрерг';
+        a = 'Четверг';
         break;
     case 5:
       a = 'Пятница';
@@ -80,3 +80,33 @@ console.log(ageClassification(122));
 console.log(ageClassification(122.01));
 console.log(ageClassification(150));
 
+function oddFn (n){
+  var mas = [];
+  var i = 0;
+  while (i++ < n) if (i % 2 !== 0) mas.push(i);
+  return mas;
+}
+console.log(oddFn(10));
+console.log(oddFn(15));
+console.log(oddFn(20));
+
+function mainFunc (a, b, cb){
+  if (cb && typeof cb === 'function') return cb(a, b);
+  return false;
+}
+
+function cbRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function cbPow(a, b){
+  return Math.pow(a, b);
+}
+
+function cbAdd(a, b) {
+  return a + b;
+}
+console.log(mainFunc(2, 5, cbRandom));
+console.log(mainFunc(2, 5, cbPow));
+console.log(mainFunc(2, 5, cbAdd));
+console.log(mainFunc(2, 5, 'not a func'));
